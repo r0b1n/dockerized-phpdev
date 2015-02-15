@@ -13,6 +13,7 @@ docker build -t php-fpm-dev php-fpm # build php-fpm image with tag 'php-fpm-dev'
 ```
 
 #### Running containers from images
+In this examples assumed what we have folder `/export/sites/f8d3d1/` with source code and it will be document root for server.
 First php-fpm container
 ```bash
 sudo docker run -d -i \ 
