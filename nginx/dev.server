@@ -1,0 +1,32 @@
+server {
+	# listen on different from default config port 
+	listen 8080 default_server;
+
+	root /srv/public;
+	index index.php;
+
+	server_name localhost;
+
+	location / {
+		try_files $uri $uri/ index.php;
+            if (!-e $request_filename) {
+                rewrite ^/(.*)$ /index.php?/$1 last;
+                break;
+            }
+	}
+
+	# pass the PHP scripts to FastCGI server listening on php:9000
+	location ~ \.php$ {
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		# NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+	
+		# With php5-fpm on remote:
+		# NOTE: "php" here is hostname of linked php-fpm instance 
+		fastcgi_pass php:9000;
+		fastcgi_index index.php;
+		include fastcgi_params;
+
+		# increase timeout for comfortable debugging
+        fastcgi_read_timeout 3600s;
+	}
+}
