@@ -10,6 +10,9 @@ RUN apt-get update && \
 
 
 # TODO: add site config.
+ADD dev.server /etc/nginx/sites-available/
+RUN ln -sf /etc/nginx/sites-available/dev.server /etc/nginx/sites-enabled/
+
 
 # TODO: add data volumes.
 
