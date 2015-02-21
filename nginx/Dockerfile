@@ -18,7 +18,7 @@ RUN ln -sf /etc/nginx/sites-available/dev.server /etc/nginx/sites-enabled/
 
 
 # Expose ports.
-EXPOSE 80
+EXPOSE 8080
 EXPOSE 443
 
 # Define default command.
