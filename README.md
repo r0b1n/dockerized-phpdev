@@ -27,7 +27,7 @@ then nginx container with link to php-fpm
 ```bash
 sudo docker run -d -i \ 
 	-v /export/sites/f8d3d1/:/srv \ # forwarding same directory as for php-fpm container.
-	--link dev-fpm-f8d3d1:fpm \ # link with php-fpm container. NOTE: inside of nginx controller 'dev-fpm-f8d3d1' will be accessable by 'fpm' hostname!
+	--link dev-fpm-f8d3d1:php \ # link with php-fpm container. NOTE: inside of nginx controller 'dev-fpm-f8d3d1' will be accessable by 'php' hostname!
 	-p 8080:80 \ # expose 80 port to 8080 host port. will be available using http://host_ip:8080. TODO: add reverse proxy for containers.
 	--name dev-nginx-f8d3d1 \ # unique container name
 	nginx-dev # based on this image
