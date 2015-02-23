@@ -9,4 +9,5 @@ Simple nginx image.
 - Expects php-fpm on `php:9000`. `php` - linked container. See [php-fpm](https://github.com/r0b1n/dockerized-phpdev/tree/master/php-fpm)
 
 ## How to run
-// TODO
+
+Check [here](https://github.com/r0b1n/dockerized-phpdev)

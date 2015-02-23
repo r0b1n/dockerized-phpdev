@@ -9,4 +9,5 @@ It is simple container with only one service inside - php-fpm. Follows one conta
 - separate [pool config](https://github.com/r0b1n/dockerized-phpdev/blob/master/php-fpm/dev-pool.conf).
 
 ## How to run?
-// TODO
+
+Check [here](https://github.com/r0b1n/dockerized-phpdev)
