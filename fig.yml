@@ -1,0 +1,22 @@
+php:
+  image: r0b1n/dockerized-phpdev-fpm
+  volumes:
+    - /srv:/srv/public
+  links:
+    - db:db
+
+web:
+  image: r0b1n/dockerized-phpdev-nginx
+  ports:
+    - "8888:8080"
+  links:
+    - php
+  volumes:
+    - /srv:/srv/public
+db:
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: "u_project"
+    MYSQL_PASSWORD: "p_project"
+    MYSQL_DATABASE: "project"
