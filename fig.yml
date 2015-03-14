@@ -1,18 +1,21 @@
 php:
-  image: r0b1n/dockerized-phpdev-fpm
+  build: php-fpm
   volumes:
-    - /srv:/srv/public
+    - /srv:/srv
   links:
     - db:db
+  environment:
+    TERM: xterm  # fixes for some commands in bash inside container.
 
 web:
-  image: r0b1n/dockerized-phpdev-nginx
+  build: nginx
   ports:
     - "8888:8080"
   links:
     - php
   volumes:
-    - /srv:/srv/public
+    - /srv:/srv
+
 db:
   image: mysql
   environment:
